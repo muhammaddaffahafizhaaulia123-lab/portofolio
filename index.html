@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Modern Personal Website</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav>
+      <h2>PORT<span style="color: #00bcd4">FOLIO</span></h2>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- HEADER -->
+    <section class="header" id="home">
+      <div class="header-content fade-in">
+        <h1>Halo, Saya <span>M Daffa H A</span></h1>
+        <p>Mahasiswa Informatika — Mobile App Developer</p>
+
+        <div class="btn-group">
+          <a href="#about" class="btn glow">Tentang Saya</a>
+          <a href="#contact" class="btn glow">Hubungi Saya</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="fade-in glass">
+      <div class="about-text">
+        <h2>Tentang Saya</h2>
+        <p>
+          Saya adalah mahasiswa Informatika angkatan 23 yang tertarik pada
+          pengembangan website, desain UI/UX, dan teknologi modern. Saya suka
+          membuat tampilan web yang elegan, bersih, dan mudah digunakan.
+        </p>
+      </div>
+
+      <div class="about-img">
+        <img src="foto.jpg" alt="Foto Profil" />
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- SKILLS -->
+    <section id="skills" class="fade-in">
+      <h2>Kemampuan</h2>
+
+      <div class="skill-item">
+        <p>HTML</p>
+        <div class="progress">
+          <div class="progress-bar" style="--value: 90%"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <p>Flutter</p>
+        <div class="progress">
+          <div class="progress-bar" style="--value: 70%"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <p>CSS</p>
+        <div class="progress">
+          <div class="progress-bar" style="--value: 80%"></div>
+        </div>
+      </div>
+
+      <div class="skill-item">
+        <p>JavaScript</p>
+        <div class="progress">
+          <div class="progress-bar" style="--value: 65%"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CONTACT -->
+    <section id="contact" class="fade-in glass">
+      <h2>Contact</h2>
+
+      <div class="contact-box">
+        <p>Email:</p>
+        <a href="mailto:muhammaddaffahafizhaaulia123@gmail.com"
+          >muhammaddaffahafizhaaulia123@gmail.com</a
+        >
+        <br /><br />
+
+        <p>WhatsApp:</p>
+        <a href="https://wa.me/6287834807640">+62 7834807640</a>
+        <br /><br />
+
+        <p>Instagram:</p>
+        <a href="#">@mhdfahzal</a>
+      </div>
+    </section>
+
+    <footer>© 2025 — Dibuat oleh M Daffa H A</footer>
+
+    <!-- Fade Scroll Script -->
+    <script>
+      const faders = document.querySelectorAll(".fade-in");
+
+      const appearOptions = { threshold: 0.3 };
+
+      const appear = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("visible", entry.isIntersecting);
+        });
+      }, appearOptions);
+
+      faders.forEach((el) => appear.observe(el));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,453 @@
+/* ============ GLOBAL STYLE ============ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #0f1115;
+  color: white;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f1115;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00bcd4;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0096a8;
+}
+
+
+/* ============ FADE-IN ANIMATION ALWAYS TRIGGER ============ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ============ NAVBAR ============ */
+/* Make navbar slimmer and keep background blur */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 8%;
+  /* reduced padding to make appbar smaller */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.45);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.25s ease, padding 0.25s ease;
+}
+
+/* Logo/title */
+nav h2 {
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin: 0;
+}
+
+nav h2 span {
+  color: #00bcd4;
+}
+
+/* Menu list (horizontal, no bullets) */
+nav ul {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  list-style: none;
+  /* remove bullets */
+  margin: 0;
+  padding: 0;
+}
+
+/* each item */
+nav ul li {
+  list-style: none;
+  /* ensure no bullets across browsers */
+}
+
+/* link style */
+nav ul li a {
+  font-size: 15px;
+  color: white;
+  opacity: 0.85;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: all 0.18s ease;
+  display: inline-block;
+}
+
+/* hover effect */
+nav ul li a:hover {
+  opacity: 1;
+  color: #00bcd4;
+  text-shadow: 0 0 10px rgba(0, 188, 212, 0.12);
+  transform: translateY(-2px) scale(1.02);
+  background: rgba(0, 188, 212, 0.04);
+}
+
+/* smaller nav on scroll (optional visual tweak) */
+nav.shrink {
+  padding: 8px 6%;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+
+/* ============ HEADER ============ */
+.header {
+  height: 100vh;
+  padding-top: 78px;
+  /* match smaller navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+
+  /* Background laptop dikembalikan (pastikan file background.jpg ada di folder) */
+  background: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+
+  position: relative;
+
+  /* Parallax effect */
+  background-attachment: fixed;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  animation: fadeInScale 1.2s ease forwards;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.header h1 {
+  font-size: 44px;
+  line-height: 1.05;
+  margin-bottom: 6px;
+}
+
+.header h1 span {
+  color: #00bcd4;
+}
+
+.header p {
+  margin-top: 8px;
+  opacity: 0.85;
+}
+
+/* Glow buttons */
+.btn-group {
+  margin-top: 24px;
+  display: flex;
+  gap: 16px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: 1px solid #00bcd4;
+  color: #00bcd4;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn:hover {
+  background: #00bcd4;
+  color: #071014;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 188, 212, 0.12);
+}
+
+/* subtle glow variant */
+.btn.glow {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.btn.glow:hover {
+  box-shadow: 0 8px 30px rgba(0, 188, 212, 0.12), 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+
+/* ============ SECTION DIVIDER ============ */
+.divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #00bcd4, transparent);
+  margin: 60px 0;
+  opacity: 0.6;
+}
+
+
+/* ============ ABOUT SECTION ============ */
+#about {
+  padding: 100px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.about-img img {
+  width: 320px;
+  max-width: 42%;
+  border-radius: 12px;
+  filter: grayscale(25%);
+  transition: 0.45s ease;
+  animation: floating 5s ease-in-out infinite;
+  object-fit: cover;
+}
+
+.about-img img:hover {
+  filter: grayscale(0%);
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 12px 36px rgba(0, 188, 212, 0.14);
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.about-text {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.about-text h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.about-text p {
+  max-width: 100%;
+  opacity: 0.95;
+  text-align: justify;
+  /* Rapi sejajar */
+  line-height: 1.85;
+  font-size: 16px;
+}
+
+
+/* ============ SKILLS SECTION ============ */
+#skills {
+  padding: 100px 10%;
+}
+
+#skills h2 {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.skill-item {
+  margin-bottom: 20px;
+}
+
+.skill-item p {
+  margin-bottom: 8px;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.progress {
+  width: 100%;
+  height: 8px;
+  background: #111;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #00bcd4, #00ffa6 80%);
+  width: 0%;
+  animation: loadSkill 1.8s forwards;
+}
+
+@keyframes loadSkill {
+  to {
+    width: var(--value);
+  }
+}
+
+/* add subtle labels on skill bars for accessibility */
+.skill-item .label {
+  float: right;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+
+/* ============ CONTACT SECTION ============ */
+#contact {
+  padding: 100px 10%;
+  text-align: center;
+}
+
+#contact h2 {
+  font-size: 32px;
+  margin-bottom: 18px;
+}
+
+.contact-box {
+  margin: 0 auto;
+  max-width: 480px;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 36px rgba(0, 188, 212, 0.06);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.contact-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 46px rgba(0, 188, 212, 0.10);
+}
+
+.contact-box p {
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.contact-box a {
+  color: #00bcd4;
+  font-weight: 600;
+}
+
+
+/* ============ FOOTER ============ */
+footer {
+  padding: 36px;
+  text-align: center;
+  opacity: 0.7;
+  letter-spacing: 1px;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  margin-top: 40px;
+}
+
+
+/* ============ RESPONSIVE ============ */
+@media screen and (max-width: 900px) {
+  nav {
+    padding: 12px 6%;
+  }
+
+  .header {
+    padding-top: 72px;
+    background-attachment: scroll;
+  }
+
+  .header h1 {
+    font-size: 36px;
+  }
+
+  .about-img img {
+    display: none;
+  }
+
+  /* hide large photo for small screens */
+  #about {
+    padding: 70px 6%;
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .about-text {
+    padding: 0;
+  }
+
+  nav ul {
+    gap: 18px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  nav h2 {
+    font-size: 18px;
+  }
+
+  nav ul {
+    gap: 12px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .btn-group {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #skills {
+    padding: 60px 6%;
+  }
+
+  #contact {
+    padding: 60px 6%;
+  }
+}
