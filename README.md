@@ -1,14 +1,12 @@
-# Portofolio Biodata
+This is a simple biodata project that I created as practice for building a personal portfolio page.
+This project contains information such as:
 
-Ini adalah project biodata sederhana yang saya buat sebagai latihan membuat halaman portofolio pribadi.  
-Project ini berisi informasi tentang:
+- Personal data
 
-- Data diri
-- Pendidikan
-- Hobi
-- Kontak
-- Foto profil
+- Contact information
 
-Project ini dibuat menggunakan HTML, CSS, dan JavaScript.
+- Profile photo
 
-Terima kasih sudah melihat project ini!
+This project was built using HTML, CSS, and JavaScript.
+
+Thank you for viewing this project!
